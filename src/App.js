@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Modal } from "./Modal";
 import styled from "styled-components";
 
@@ -18,7 +19,7 @@ const data = [
   {
     id: 1,
     name: "Brooks Hyperion",
-    description: "This shoe has a description for the Brookks Hyperion",
+    description: "This shoe has a description for the Brooks Hyperion",
   },
   {
     id: 2,
@@ -32,14 +33,26 @@ const data = [
   },
 ];
 
-const sportShoes = data.map((item) => <Item>{item.name}</Item>);
-
 export default function App() {
+  const [selectedItems, setSelectedItems] = useState([]);
+
+  function selectProduct(productID) {
+    const findProduct = data.find((item) => productID === item.id);
+    setSelectedItems(findProduct);
+  }
+
+  const renderedSportShoes = data.map((item) => (
+    <Item id={item.id} key={item.id} onClick={() => selectProduct(item.id)}>
+      {item.name}
+    </Item>
+  ));
+
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
+      <h1> Welcome to the shoe store</h1>
       <Modal />
-      <Section>{sportShoes}</Section>
+      <Section>{renderedSportShoes}</Section>
+      <p>{selectedItems ? selectedItems.name : null}</p>
     </div>
   );
 }
