@@ -23,12 +23,6 @@ const ModalBody = styled.div`
 export const Modal = ({ children }) => {
   const [showModal, setshowModal] = useState(false);
 
-  const data = [
-    { id: 1, name: "something" },
-    { id: 1, name: "something" },
-    { id: 1, name: "something" }
-  ];
-
   return (
     <>
       <button onClick={() => setshowModal(true)}>Show Modal</button>
