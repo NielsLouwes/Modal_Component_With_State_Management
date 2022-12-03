@@ -18,30 +18,28 @@ const data = [
   {
     id: 1,
     name: "Brooks Hyperion",
-    description: "This shoe has a description for the Brookks Hyperion"
+    description: "This shoe has a description for the Brookks Hyperion",
   },
   {
     id: 2,
     name: "Alta Avera",
-    description: "This shoe has a description for the Alta Avera"
+    description: "This shoe has a description for the Alta Avera",
   },
   {
     id: 3,
     name: "Nike Pegasus 39 Ultra",
-    description: "This shoe has a description for the Nike Pegasus"
-  }
+    description: "This shoe has a description for the Nike Pegasus",
+  },
 ];
+
+const sportShoes = data.map((item) => <Item>{item.name}</Item>);
 
 export default function App() {
   return (
     <div className="App">
       <h1>Hello CodeSandbox</h1>
       <Modal />
-      <Section>
-        {data.map((item) => (
-          <Item>{item.name}</Item>
-        ))}
-      </Section>
+      <Section>{sportShoes}</Section>
     </div>
   );
 }
