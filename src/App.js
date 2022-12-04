@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 const Section = styled.div`
   width: 10rem;
-  height: 400px;
   border: 1px solid red;
   margin-top: 25px;
 `;
@@ -41,6 +40,7 @@ const data = [
 
 export default function App() {
   const [selectedItems, setSelectedItems] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
 
   const renderedSportShoes = data.map((item) => (
     <Item id={item.id} key={item.id} onClick={() => selectShoe(item.id)}>
@@ -52,6 +52,26 @@ export default function App() {
     const findShoe = data.find((item) => id === item.id);
     setSelectedItems(findShoe);
   }
+
+  const addItemToCart = (item) => {
+    let updatedCartItems = [...cartItems];
+
+    const updatedItemIndex = updatedCartItems.findIndex(
+      (item) => item.name === data.name // better to check with some kind of id if exists
+    );
+
+    if (updatedItemIndex < 0) {
+      updatedCartItems.push({ ...item, count: 1 });
+    } else {
+      const updatedItem = {
+        ...updatedCartItems[updatedItemIndex]
+      };
+      updatedItem.count++;
+      updatedCartItems[updatedItemIndex] = updatedItem;
+    }
+
+    //updatedCartItems  => the new cart
+  };
 
   return (
     <div className="App">
