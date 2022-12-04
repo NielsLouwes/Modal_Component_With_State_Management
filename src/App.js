@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Modal } from "./Modal";
 import styled from "styled-components";
-import { useState } from "react";
 
 const Section = styled.div`
   width: 10rem;
@@ -21,7 +20,6 @@ const data = [
     id: 1,
     name: "Brooks Hyperion",
     description: "This shoe has a description for the Brookks Hyperion"
-
   },
   {
     id: 2,
@@ -38,19 +36,16 @@ const data = [
 export default function App() {
   const [selectedItems, setSelectedItems] = useState([]);
 
-
   const renderedSportShoes = data.map((item) => (
-    <Item id={item.id} key={item.id} onClick={() => selectProduct(item.id)}>
+    <Item id={item.id} key={item.id} onClick={() => selectShoe(item.id)}>
       {item.name}
     </Item>
   ));
-
 
   function selectShoe(id) {
     const findShoe = data.find((item) => id === item.id);
     setSelectedItems(findShoe);
   }
-
 
   return (
     <div className="App">
