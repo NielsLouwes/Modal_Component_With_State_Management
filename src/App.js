@@ -13,6 +13,12 @@ const Item = styled.div`
   padding: 10px 5px;
   margin: 10px 5px;
   border: 1px solid black;
+
+  :hover {
+    font-weight: bolder;
+    cursor: pointer;
+    border: 2px solid black;
+  }
 `;
 
 const data = [
