@@ -20,7 +20,7 @@ const ModalBody = styled.div`
   height: 500px;
 `;
 
-export const Modal = ({ children }) => {
+export const Modal = ({ children, selectedItems }) => {
   const [showModal, setshowModal] = useState(false);
 
   return (

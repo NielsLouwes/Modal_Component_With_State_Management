@@ -76,9 +76,17 @@ export default function App() {
   return (
     <div className="App">
       <h1> Welcome to the shoe store</h1>
-      <Modal />
+      <Modal>
+        {" "}
+        {selectedItems.name} - {selectedItems.description}{" "}
+      </Modal>
       <Section>{renderedSportShoes}</Section>
-      <p> {selectedItems ? selectedItems.name : null}</p>
+      {selectedItems ? (
+        <p>
+          {" "}
+          {selectedItems.name} - {selectedItems.description}{" "}
+        </p>
+      ) : null}
     </div>
   );
 }
